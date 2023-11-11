@@ -4,6 +4,7 @@ import { prisma } from "@/lib/db/prisma"
 import Image from "next/image";
 import { notFound } from "next/navigation"
 import { cache } from "react";
+import { Metadata } from "next";
 import { incrementProductQuantity } from "./actions";
 
 interface ProductPageProps {
@@ -22,16 +23,18 @@ const getProduct = cache(async (id:string)=>{
     return product;
 })
 
-export async function generateMetadata({params:{id}} : ProductPageProps): Promise<Metadata>{
+export async function generateMetadata({
+    params: { id },
+  }: ProductPageProps): Promise<Metadata> {
     const product = await getProduct(id);
-
+  
     return {
-        title: product.name + "- Horizon",
-        description: product.description,
-        openGraph: {
-            images: [{url: product.imageUrl}]
-        }
-    }
+      title: product.name + " - Flowmazon",
+      description: product.description,
+      openGraph: {
+        images: [{ url: product.imageUrl }],
+      },
+    };
 }
 
 export default async function ProductPage({params:{id}} : ProductPageProps){
@@ -57,4 +60,3 @@ export default async function ProductPage({params:{id}} : ProductPageProps){
         </div>
     )
 }
-
