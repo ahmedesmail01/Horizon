@@ -36,7 +36,7 @@ export default async function Home({ searchParams: { page = "1" } }: HomeProps) 
         <title>{metadata.title}</title>
         {/* Add Open Graph meta tags */}
         {metadata.openGraph.images.map((image, index) => (
-          <meta key={index} property="og:image" content={image.url.src} />
+          <meta key={index} property="og:image" content={`/app/opengraph-image.png`} />
         ))}
       </Head>
 
