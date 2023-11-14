@@ -3,9 +3,17 @@ import ProductCard from '@/components/ProductCard'
 import { prisma } from '@/lib/db/prisma'
 import Image from 'next/image'
 import Link from 'next/link'
+import oImage from "@/app/opengraph-image.png"
 
 interface HomeProps{
   searchParams:{page:string};
+}
+
+export const metadata = {
+  title: "Home page - Horizon",
+  openGraph:{
+    images:[{oImage}]
+  }
 }
 
 export default async function Home({searchParams:{page ="1"}}:HomeProps) {
