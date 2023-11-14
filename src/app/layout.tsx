@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from './Navbar/Navbar'
 import Footer from './Footer'
 import SessionProvider from "./SessionProvider"
+import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,9 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-      <meta property="og:image" content="<generated>" />
-      </head>
+      <Head>
+      <meta property="og:image" content={`/app/opengraph-image.png`} />
+      </Head>
       <body className={inter.className}>
         <SessionProvider>
           <Navbar/>
