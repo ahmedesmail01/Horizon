@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+      <meta property="og:image" content="<generated>" />
+      </head>
       <body className={inter.className}>
         <SessionProvider>
           <Navbar/>
